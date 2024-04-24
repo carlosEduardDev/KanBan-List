@@ -7,12 +7,19 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Input } from "./components/ui/input";
 
 const App = () => {
   return (
     <main>
+      <header className="bg-gray-800 flex h-16 items-center text-slate-50 justify-between px-16 py-3">
+        <h1>Tasks - Carlos</h1>
+        <form className="flex space-x-2">
+          <Input className="text-gray-800 max-w-sm" type="text" placeholder="Task" />
+          <Input className="text-gray-800 max-w-14 text-center" type="submit" value="Add" />
+        </form>
+      </header>
       <Table>
-        <TableCaption>Kanban task list</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="text-center">Todo</TableHead>
