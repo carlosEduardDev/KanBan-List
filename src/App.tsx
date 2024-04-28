@@ -2,6 +2,8 @@ import React from "react";
 import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "./components/ui/input";
 import { ITasks } from "./interfaces";
+import SectionTasks from "./components/Section";
+import handleDrop from "./service/handleDrop";
 
 const App = () => {
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -32,7 +34,9 @@ const App = () => {
   return (
     <main>
       <header className="bg-gray-800 flex h-16 items-center text-slate-50 justify-between sm:px-16 px-5 py-3">
-        <h1 className="sm:block hidden">Tasks - Carlos</h1>
+        <h1 className="sm:block hidden">
+          Pending tasks: {tasks.todo.length + tasks.doing.length}
+        </h1>
         <form
           className="flex justify-between sm:w-80 w-full space-x-2"
           onSubmit={handleSubmit}
@@ -53,55 +57,35 @@ const App = () => {
       </header>
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead className="text-center">Pending</TableHead>
-            <TableHead className="text-center">Doing</TableHead>
-            <TableHead className="text-center">Done</TableHead>
+          <TableRow className="grid grid-cols-3">
+            <TableHead className="flex items-center justify-center">
+              Pending
+            </TableHead>
+            <TableHead className="flex items-center justify-center">
+              Doing
+            </TableHead>
+            <TableHead className="flex items-center justify-center">
+              Done
+            </TableHead>
           </TableRow>
         </TableHeader>
       </Table>
       <section className="grid w-full grid-cols-3 justify-between">
-        <div className="overflow-auto py-5 px-2 max-h-[83vh] min-h-[83vh] text-center border-r-2 border-slate-300">
-          {tasks &&
-            tasks.todo.map((todo) => (
-              <div
-                key={crypto.randomUUID()}
-                className="flex justify-center mb-4"
-              >
-                <p className="break-all text-slate-50 bg-slate-800 rounded p-2 w-60">
-                  {todo}
-                </p>
-              </div>
-            ))}
-        </div>
-
-        <div className="overflow-auto py-5 px-2 max-h-[83vh] min-h-[83vh] text-center border-r-2 border-slate-300">
-          {tasks &&
-            tasks.doing.map((doing) => (
-              <div
-                key={crypto.randomUUID()}
-                className="flex justify-center mb-4"
-              >
-                <p className="break-all text-slate-50 bg-slate-800 rounded p-2 w-60">
-                  {doing}
-                </p>
-              </div>
-            ))}
-        </div>
-
-        <div className="overflow-auto py-5 px-2 max-h-[83vh] min-h-[83vh] text-center">
-          {tasks &&
-            tasks.done.map((done) => (
-              <div
-                key={crypto.randomUUID()}
-                className="flex justify-center mb-4"
-              >
-                <p className="break-all text-slate-50 bg-slate-800 rounded p-2 w-60">
-                  {done}
-                </p>
-              </div>
-            ))}
-        </div>
+        <SectionTasks
+          handleDrop={(e) => handleDrop(e, tasks, setTasks)}
+          tasks={tasks.todo}
+          id={"todo"}
+        />
+        <SectionTasks
+          handleDrop={(e) => handleDrop(e, tasks, setTasks)}
+          tasks={tasks.doing}
+          id={"doing"}
+        />
+        <SectionTasks
+          handleDrop={(e) => handleDrop(e, tasks, setTasks)}
+          tasks={tasks.done}
+          id={"done"}
+        />
       </section>
     </main>
   );
