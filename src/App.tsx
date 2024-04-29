@@ -72,21 +72,21 @@ const App = () => {
       </Table>
       <section className="grid w-full grid-cols-3 justify-between">
         <SectionTasks
-          color={"red"}
+          color={"#e52727"}
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.todo}
           id="todo"
           setTasks={setTasks}
         />
         <SectionTasks
-          color={"yellow"}
+          color={"#dfdb00"}
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.doing}
           id="doing"
           setTasks={setTasks}
         />
         <SectionTasks
-          color={"green"}
+          color={"#4fcd18"}
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.done}
           id="done"
