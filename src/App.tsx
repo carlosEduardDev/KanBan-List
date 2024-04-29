@@ -74,17 +74,20 @@ const App = () => {
         <SectionTasks
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.todo}
-          id={"todo"}
+          id="todo"
+          color="red"
         />
         <SectionTasks
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.doing}
-          id={"doing"}
+          id="doing"
+          color="yellow"
         />
         <SectionTasks
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.done}
-          id={"done"}
+          id="done"
+          color="green"
         />
       </section>
     </main>

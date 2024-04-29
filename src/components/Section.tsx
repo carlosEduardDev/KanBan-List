@@ -4,10 +4,12 @@ const SectionTasks = ({
   handleDrop,
   tasks,
   id,
+  color,
 }: {
   handleDrop: React.DragEventHandler<HTMLDivElement>;
   tasks: string[];
   id: string;
+  color: string;
 }) => {
   return (
     <div
@@ -25,7 +27,9 @@ const SectionTasks = ({
           }
           className="flex justify-center mb-4"
         >
-          <p className="break-all text-slate-50 bg-slate-800 rounded p-2 w-60">
+          <p
+            className={`cursor-grab flex justify-center items-center gap-2 break-all text-slate-50 bg-slate-800 rounded p-2 w-60 border-l-8 border-${color}-500`}
+          >
             {todo}
           </p>
         </div>
