@@ -6,13 +6,22 @@ import SectionTasks from "./components/Section";
 import handleDrop from "./service/handleDrop";
 
 const App = () => {
+  const localStorageName = "TASKSKANBAN";
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [taskContent, setTaskContent] = React.useState("");
-  const [tasks, setTasks] = React.useState<ITasks>({
-    todo: [],
-    doing: [],
-    done: [],
-  });
+  const [tasks, setTasks] = React.useState<ITasks>(
+    JSON.parse(localStorage.getItem(localStorageName) as string) || {
+      todo: [],
+      doing: [],
+      done: [],
+    }
+  );
+
+  React.useEffect(() => {
+    if (localStorage.getItem(localStorageName))
+      localStorage[localStorageName] = JSON.stringify(tasks);
+    localStorage.setItem(localStorageName, JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
