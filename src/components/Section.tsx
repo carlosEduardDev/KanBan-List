@@ -4,14 +4,15 @@ import React from "react";
 const SectionTasks = ({ color, handleDrop, tasks, id, setTasks }: ISection) => {
   const handleDblClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const task = e.currentTarget.innerText;
-
-    setTasks((prev) => {
-      return {
-        doing: [...prev.doing.filter((doing) => doing !== task)],
-        done: [...prev.done.filter((done) => done !== task)],
-        todo: [...prev.todo.filter((todo) => todo !== task)],
-      };
-    });
+    const deleteTask = confirm("Do you want to delete the task?");
+    deleteTask &&
+      setTasks((prev) => {
+        return {
+          doing: [...prev.doing.filter((doing) => doing !== task)],
+          done: [...prev.done.filter((done) => done !== task)],
+          todo: [...prev.todo.filter((todo) => todo !== task)],
+        };
+      });
   };
 
   return (
