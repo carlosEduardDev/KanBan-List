@@ -1,16 +1,31 @@
+import { ITasks } from "@/interfaces";
 import React from "react";
 
 const SectionTasks = ({
+  color,
   handleDrop,
   tasks,
   id,
-  color,
+  setTasks,
 }: {
   handleDrop: React.DragEventHandler<HTMLDivElement>;
   tasks: string[];
   id: string;
   color: string;
+  setTasks: React.Dispatch<React.SetStateAction<ITasks>>;
 }) => {
+  const handleDblClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const task = e.currentTarget.innerText;
+
+    setTasks((prev) => {
+      return {
+        doing: [...prev.doing.filter((doing) => doing !== task)],
+        done: [...prev.done.filter((done) => done !== task)],
+        todo: [...prev.todo.filter((todo) => todo !== task)],
+      };
+    });
+  };
+
   return (
     <div
       className="overflow-auto py-5 px-2 max-h-[83vh] min-h-[83vh] text-center border-r-2 borde-slate-300"
@@ -21,6 +36,7 @@ const SectionTasks = ({
       {tasks.map((todo, i) => (
         <div
           key={i}
+          onDoubleClick={handleDblClick}
           draggable
           onDragStart={(e: React.DragEvent<HTMLDivElement>) =>
             e.dataTransfer.setData("text", e.currentTarget.innerText)

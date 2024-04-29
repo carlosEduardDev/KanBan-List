@@ -72,22 +72,25 @@ const App = () => {
       </Table>
       <section className="grid w-full grid-cols-3 justify-between">
         <SectionTasks
+          color={"red"}
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.todo}
           id="todo"
-          color="red"
+          setTasks={setTasks}
         />
         <SectionTasks
+          color={"yellow"}
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.doing}
           id="doing"
-          color="yellow"
+          setTasks={setTasks}
         />
         <SectionTasks
+          color={"green"}
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
           tasks={tasks.done}
           id="done"
-          color="green"
+          setTasks={setTasks}
         />
       </section>
     </main>
