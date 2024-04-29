@@ -1,19 +1,7 @@
-import { ITasks } from "@/interfaces";
+import { ISection } from "@/interfaces";
 import React from "react";
 
-const SectionTasks = ({
-  color,
-  handleDrop,
-  tasks,
-  id,
-  setTasks,
-}: {
-  handleDrop: React.DragEventHandler<HTMLDivElement>;
-  tasks: string[];
-  id: string;
-  color: string;
-  setTasks: React.Dispatch<React.SetStateAction<ITasks>>;
-}) => {
+const SectionTasks = ({ color, handleDrop, tasks, id, setTasks }: ISection) => {
   const handleDblClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const task = e.currentTarget.innerText;
 
