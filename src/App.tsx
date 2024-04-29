@@ -44,14 +44,14 @@ const App = () => {
           <Input
             className="text-gray-800 max-w-sm"
             type="text"
-            placeholder="Task"
+            placeholder="Enter your task..."
             ref={inputRef}
             onChange={(e) => setTaskContent(e.target.value)}
           />
           <Input
             className="text-gray-800 max-w-14 text-center"
             type="submit"
-            value="Add"
+            value="add"
           />
         </form>
       </header>
