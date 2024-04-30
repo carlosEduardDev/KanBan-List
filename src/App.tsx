@@ -28,6 +28,8 @@ const App = () => {
     if (
       taskContent &&
       !tasks.todo.filter((todo) => todo === taskContent)[0] &&
+      !tasks.doing.filter((doing) => doing === taskContent)[0] &&
+      !tasks.done.filter((done) => done === taskContent)[0] &&
       inputRef.current
     ) {
       setTasks({
