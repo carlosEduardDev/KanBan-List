@@ -34,7 +34,7 @@ const SectionTasks = ({ color, handleDrop, tasks, id, setTasks }: ISection) => {
         >
           <p
             style={{ borderLeftColor: color }}
-            className="cursor-grab flex justify-center items-center gap-2 break-all text-slate-50 bg-slate-800 rounded p-2 w-60 border-l-8"
+            className="sm:text-base text-xs cursor-grab flex justify-center items-center gap-2 text-slate-50 bg-slate-800 rounded p-2 w-60 border-l-8 overflow-hidden"
           >
             {todo}
           </p>

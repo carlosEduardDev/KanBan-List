@@ -55,6 +55,7 @@ const App = () => {
             type="text"
             placeholder="Enter your task..."
             ref={inputRef}
+            maxLength={50}
             onChange={(e) => setTaskContent(e.target.value)}
           />
           <Input
@@ -67,13 +68,13 @@ const App = () => {
       <Table>
         <TableHeader>
           <TableRow className="grid grid-cols-3">
-            <TableHead className="flex items-center justify-center">
+            <TableHead className="text-base flex items-center justify-center">
               Pending
             </TableHead>
-            <TableHead className="flex items-center justify-center">
+            <TableHead className="text-base flex items-center justify-center">
               Doing
             </TableHead>
-            <TableHead className="flex items-center justify-center">
+            <TableHead className="text-base flex items-center justify-center">
               Done
             </TableHead>
           </TableRow>
