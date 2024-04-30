@@ -17,7 +17,7 @@ const SectionTasks = ({ color, handleDrop, tasks, id, setTasks }: ISection) => {
 
   return (
       <div
-        className="overflow-auto py-5 px-2 max-h-[83vh] min-h-[83vh] text-center border-r-2 borde-slate-300"
+        className="overflow-auto py-5 px-2 max-h-[82vh] min-h-[82vh] text-center border-r-2 borde-slate-300"
         id={id}
         onDrop={(e) => handleDrop(e)}
         onDragOver={(e: React.DragEvent) => e.preventDefault()}
