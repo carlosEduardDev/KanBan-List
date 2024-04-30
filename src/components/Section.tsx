@@ -17,11 +17,9 @@ const SectionTasks = ({ color, handleDrop, tasks, id, setTasks }: ISection) => {
 
   return (
     <>
-      <h1 className="text-center text-slate-500 text-base mt-2">
-        {id === "todo" ? "Pending" : id.replace("d", "D")}
-      </h1>
+      
       <div
-        className="overflow-auto sm:block grid grid-cols-2 gap-1 py-5 px-2 min-h-[23vh] max-h-[23vh] sm:max-h-[83vh] sm:min-h-[83vh] text-center sm:border-r-2 border-b-2 borde-slate-300"
+        className="overflow-auto py-5 px-2 max-h-[83vh] sm:min-h-[83vh] text-center border-r-2 borde-slate-300"
         id={id}
         onDrop={(e) => handleDrop(e)}
         onDragOver={(e: React.DragEvent) => e.preventDefault()}

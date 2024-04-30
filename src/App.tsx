@@ -67,7 +67,7 @@ const App = () => {
       </header>
       <Table>
         <TableHeader>
-          <TableRow className="hidden sm:grid grid-cols-3">
+          <TableRow className="grid grid-cols-3">
             <TableHead className="text-base flex items-center justify-center">
               Pending
             </TableHead>
@@ -80,7 +80,7 @@ const App = () => {
           </TableRow>
         </TableHeader>
       </Table>
-      <section className="sm:grid flex flex-col w-full sm:grid-cols-3 justify-between">
+      <section className="grid w-full grid-cols-3 justify-between">
         <SectionTasks
           color={"#e52727"}
           handleDrop={(e) => handleDrop(e, tasks, setTasks)}
