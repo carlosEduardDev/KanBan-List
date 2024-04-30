@@ -17,7 +17,7 @@ const SectionTasks = ({ color, handleDrop, tasks, id, setTasks }: ISection) => {
 
   return (
     <div
-      className="overflow-auto py-5 px-2 max-h-[83vh] min-h-[83vh] text-center border-r-2 borde-slate-300"
+      className="overflow-auto sm:block grid grid-cols-2 gap-1 py-5 px-2 min-h-[30vh] max-h-[30vh] sm:max-h-[83vh] sm:min-h-[83vh] text-center sm:border-r-2 border-b-2 borde-slate-300"
       id={id}
       onDrop={(e) => handleDrop(e)}
       onDragOver={(e: React.DragEvent) => e.preventDefault()}
@@ -30,7 +30,7 @@ const SectionTasks = ({ color, handleDrop, tasks, id, setTasks }: ISection) => {
           onDragStart={(e: React.DragEvent<HTMLDivElement>) =>
             e.dataTransfer.setData("text", e.currentTarget.innerText)
           }
-          className="flex justify-center mb-4"
+          className="flex justify-center mb-4 self-start"
         >
           <p
             style={{ borderLeftColor: color }}
